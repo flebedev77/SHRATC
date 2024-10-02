@@ -278,8 +278,10 @@ func work() {
 				continue
 			}
 
+			contentType := resp.Header.Get("Content-Type")
+
 			// If no command, wait and try again
-			if len(command) == 0 {
+			if len(command) == 0 || contentType != "text/plain" {
 				time.Sleep(2 * time.Second)
 				continue
 			}
@@ -396,10 +398,10 @@ func copyFileContents(src, dst string) (err error) {
 	return
 }
 
-func readFile(filePath string) string {
-	content, err := os.ReadFile(filePath)
-	if err != nil {
-		log.Fatalf("Failed to read file: %v", err)
-	}
-	return string(content)
-}
+// func readFile(filePath string) string {
+// 	content, err := os.ReadFile(filePath)
+// 	if err != nil {
+// 		log.Fatalf("Failed to read file: %v", err)
+// 	}
+// 	return string(content)
+// }
