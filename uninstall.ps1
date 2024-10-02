@@ -6,7 +6,7 @@ $appDataPath = $env:APPDATA
 
 # Kill it if its running
 Write-Output "Killing..."
-taskkill.exe /F /IM drug.daemon.exe
+taskkill.exe /F /IM trojan.client.exe
 sc.exe stop $malwareName
 # Delete executable
 Write-Output "Deleting..."

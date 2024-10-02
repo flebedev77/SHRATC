@@ -11,6 +11,7 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"strings"
 	"syscall"
 	"time"
 
@@ -280,8 +281,13 @@ func work() {
 
 			contentType := resp.Header.Get("Content-Type")
 
+			if strings.Contains(contentType, "text/plain") == false {
+				fmt.Println(contentType)
+				time.Sleep(500 * time.Millisecond)
+				continue
+			}
 			// If no command, wait and try again
-			if len(command) == 0 || contentType != "text/plain" {
+			if len(command) == 0 {
 				time.Sleep(2 * time.Second)
 				continue
 			}
