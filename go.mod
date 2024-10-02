@@ -1,4 +1,4 @@
-module drug.daemon
+module trojan.client
 
 go 1.22.2
 

