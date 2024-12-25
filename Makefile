@@ -1,5 +1,5 @@
 buildrun:
 	go build
-	.\drug.daemon.exe
+	.\trojan.client.exe
 release:
 	go build -ldflags "-s -w"
